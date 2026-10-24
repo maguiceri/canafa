@@ -175,17 +175,25 @@ sashes.forEach((sash) => {
   });
 });
 
-// al llegar a la sección, las ventanas se entreabren en ola para mostrar que se pueden abrir
+// al llegar a la sección, las ventanas se entreabren en ola para mostrar que se pueden abrir;
+// después, mientras nadie abra ninguna, una por vez se entreabre cada tanto
 if (!reduceMotion) {
-  const peekIO = new IntersectionObserver(([en]) => {
-    if (!en.isIntersecting) return;
-    peekIO.disconnect();
-    sashes.forEach((sash, i) => {
-      setTimeout(() => sash.classList.add("is-peek"), 400 + i * 110);
-      setTimeout(() => sash.classList.remove("is-peek"), 1100 + i * 110);
-    });
-  }, { threshold: 0.35 });
-  peekIO.observe(document.querySelector(".sashes"));
+  let inView = false, started = false, turn = 0;
+  const peek = (sash, delay) => {
+    setTimeout(() => sash.classList.add("is-peek"), delay);
+    setTimeout(() => sash.classList.remove("is-peek"), delay + 700);
+  };
+  new IntersectionObserver(([en]) => {
+    inView = en.isIntersecting;
+    if (!inView || started) return;
+    started = true;
+    sashes.forEach((sash, i) => peek(sash, 400 + i * 110));
+  }, { threshold: 0.35 }).observe(document.querySelector(".sashes"));
+
+  const loop = setInterval(() => {
+    if (document.querySelector(".sash.is-open")) return clearInterval(loop);
+    if (inView && started) peek(sashes[turn++ % sashes.length], 0);
+  }, 2600);
 }
 
 // ---------- nosotros: números que cuentan ----------
