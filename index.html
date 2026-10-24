@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canafa · Aberturas de Aluminio</title>
+  <meta name="description" content="Canafa fabrica e instala aberturas de aluminio a medida: ventanas, puertas, paños fijos, cerramientos y mamparas.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@400;500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__brand" aria-label="Canafa, inicio">
+      <img src="img/logo.png" alt="" width="40" height="40">
+      <span>CANAFA</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+    <nav id="menu" class="nav__menu">
+      <a href="#trabajos">Trabajos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto" class="nav__cta">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO: plano técnico → aparece el metal de afuera → la abertura se desliza como una corrediza → brillo -->
+  <section class="hero" id="inicio">
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__stage" id="stage">
+      <!-- plano -->
+      <svg class="plan" viewBox="0 0 1254 1254" aria-hidden="true">
+        <g class="plan__lines">
+          <path pathLength="1" d="M50 1070 V790 L742 350 L1105 575"/>
+          <path pathLength="1" d="M80 1070 V810 L742 392 L1100 615"/>
+          <path pathLength="1" d="M460 1070 V578 L742 405"/>
+          <path pathLength="1" d="M515 1070 V550"/>
+          <path pathLength="1" d="M742 405 V680"/>
+          <path pathLength="1" d="M515 550 L862 748 V1070"/>
+          <path pathLength="1" d="M575 1070 V645 L800 780 V1070"/>
+          <path pathLength="1" d="M683 712 V1070 M575 912 H800"/>
+          <path pathLength="1" d="M1080 705 V925 M1105 705 V925"/>
+          <circle pathLength="1" cx="1100" cy="600" r="108"/>
+        </g>
+        <g class="plan__dims">
+          <path d="M50 1130 H1105 M50 1112 V1148 M1105 1112 V1148"/>
+          <text x="577" y="1176">3.200 mm</text>
+          <path d="M-10 350 V1070 M-28 350 H8 M-28 1070 H8"/>
+          <text x="-40" y="720" transform="rotate(-90 -40 720)">2.450 mm</text>
+          <text x="1140" y="1040" class="plan__ref">PLANO Nº 01</text>
+        </g>
+      </svg>
+
+      <!-- piezas del logo real -->
+      <img class="piece piece--left" src="img/logo.png" alt="" width="1254" height="1254">
+      <img class="piece piece--right" src="img/logo.png" alt="" width="1254" height="1254">
+      <div class="slot"><img class="piece piece--open" src="img/logo.png" alt="" width="1254" height="1254"></div>
+      <div class="shine" aria-hidden="true"></div>
+      <span class="visually-hidden">Logo de Canafa</span>
+    </div>
+
+    <div class="hero__text">
+      <h1 class="wordmark" aria-label="Canafa">
+        <span style="--i:0">C</span><span style="--i:1">A</span><span style="--i:2">N</span><span style="--i:3">A</span><span style="--i:4">F</span><span style="--i:5">A</span>
+      </h1>
+      <p class="tagline">Aberturas de aluminio</p>
+      <a class="btn-enter" href="#trabajos" id="enter">
+        <span>Conocé nuestros trabajos</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+
+    <div class="curtain" id="curtain" aria-hidden="true"></div>
+  </section>
+
+  <!-- TRABAJOS: antes / después -->
+  <section class="section works stack" id="trabajos">
+    <div class="section__head">
+      <p class="eyebrow">Nuestros trabajos</p>
+      <h2>Antes y después</h2>
+      <p class="lead">Deslizá la barra sobre cada foto para ver cómo cambió el espacio.</p>
+    </div>
+
+    <div class="works__grid">
+      <figure class="work">
+        <div class="ba" style="--pos:50%">
+          <img src="img/trabajos/1-despues.svg" alt="Después: ventana corrediza de aluminio negro" class="ba__after" loading="lazy">
+          <img src="img/trabajos/1-antes.svg" alt="Antes: ventana de madera deteriorada" class="ba__before" loading="lazy">
+          <span class="ba__tag ba__tag--before">Antes</span>
+          <span class="ba__tag ba__tag--after">Después</span>
+          <div class="ba__handle" aria-hidden="true"><span></span></div>
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después">
+        </div>
+        <figcaption>
+          <h3>Ventana corrediza · living</h3>
+          <p>Reemplazo de carpintería de madera por línea Modena con DVH.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="work">
+        <div class="ba" style="--pos:50%">
+          <img src="img/trabajos/2-despues.svg" alt="Después: puerta ventana de aluminio" class="ba__after" loading="lazy">
+          <img src="img/trabajos/2-antes.svg" alt="Antes: puerta ventana antigua" class="ba__before" loading="lazy">
+          <span class="ba__tag ba__tag--before">Antes</span>
+          <span class="ba__tag ba__tag--after">Después</span>
+          <div class="ba__handle" aria-hidden="true"><span></span></div>
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después">
+        </div>
+        <figcaption>
+          <h3>Puerta ventana · dormitorio</h3>
+          <p>Abertura de abrir con vidrio laminado de seguridad.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="work">
+        <div class="ba" style="--pos:50%">
+          <img src="img/trabajos/3-despues.svg" alt="Después: paño triple de aluminio" class="ba__after" loading="lazy">
+          <img src="img/trabajos/3-antes.svg" alt="Antes: ventanal antiguo" class="ba__before" loading="lazy">
+          <span class="ba__tag ba__tag--before">Antes</span>
+          <span class="ba__tag ba__tag--after">Después</span>
+          <div class="ba__handle" aria-hidden="true"><span></span></div>
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después">
+        </div>
+        <figcaption>
+          <h3>Ventanal de tres hojas · comedor</h3>
+          <p>Paño fijo central y dos hojas corredizas con mosquitero.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SERVICIOS: cada servicio es una ventana de abrir -->
+  <section class="section services stack" id="servicios">
+    <div class="section__head">
+      <p class="eyebrow">Servicios</p>
+      <h2>Lo que hacemos</h2>
+      <p class="lead">Cada servicio es una ventana: tocala para abrirla.</p>
+    </div>
+
+    <ul class="sashes">
+      <li class="sash">
+        <div class="sash__back">
+          <h3>Ventanas</h3>
+          <p>Corredizas, de abrir, oscilobatientes y banderolas, con vidrio simple o DVH.</p>
+          <ul class="chips"><li>Corredizas</li><li>Oscilobatientes</li><li>DVH</li></ul>
+          <a href="#contacto" class="sash__cta" data-tipo="ventana">Presupuestar ventana →</a>
+        </div>
+        <button class="sash__leaf" aria-expanded="false">
+          <span class="sash__num">01</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="10" width="56" height="44"/><rect x="9" y="15" width="26" height="34"/><rect x="29" y="18" width="26" height="31"/><path d="M14 58h12M22 55l4 3-4 3"/></svg>
+          <span class="sash__title">Ventanas</span>
+          <span class="sash__handle" aria-hidden="true"></span>
+        </button>
+      </li>
+      <li class="sash">
+        <div class="sash__back">
+          <h3>Puertas</h3>
+          <p>Puertas de entrada, puertas ventana y corredizas de gran tamaño.</p>
+          <ul class="chips"><li>Entrada</li><li>Puerta ventana</li><li>Gran formato</li></ul>
+          <a href="#contacto" class="sash__cta" data-tipo="puerta">Presupuestar puerta →</a>
+        </div>
+        <button class="sash__leaf" aria-expanded="false">
+          <span class="sash__num">02</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="4" width="32" height="56"/><rect x="21" y="9" width="22" height="26"/><rect x="21" y="40" width="22" height="15"/><path d="M40 36v6"/></svg>
+          <span class="sash__title">Puertas</span>
+          <span class="sash__handle" aria-hidden="true"></span>
+        </button>
+      </li>
+      <li class="sash">
+        <div class="sash__back">
+          <h3>Paños fijos y frentes</h3>
+          <p>Frentes vidriados para locales, oficinas y casas. Máxima luz, mínima perfilería.</p>
+          <ul class="chips"><li>Locales</li><li>Frentes</li><li>Vidrio templado</li></ul>
+          <a href="#contacto" class="sash__cta" data-tipo="pano">Presupuestar paño fijo →</a>
+        </div>
+        <button class="sash__leaf" aria-expanded="false">
+          <span class="sash__num">03</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="8" width="56" height="48"/><path d="M23 8v48M41 8v48M4 20h56"/><path d="M10 50l8-8M28 50l10-10" opacity=".5"/></svg>
+          <span class="sash__title">Paños fijos</span>
+          <span class="sash__handle" aria-hidden="true"></span>
+        </button>
+      </li>
+      <li class="sash">
+        <div class="sash__back">
+          <h3>Cerramientos</h3>
+          <p>Cerramientos de balcones, galerías y quinchos para usar el espacio todo el año.</p>
+          <ul class="chips"><li>Balcones</li><li>Galerías</li><li>Quinchos</li></ul>
+          <a href="#contacto" class="sash__cta" data-tipo="cerramiento">Presupuestar cerramiento →</a>
+        </div>
+        <button class="sash__leaf" aria-expanded="false">
+          <span class="sash__num">04</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 14h56M4 52h56"/><rect x="4" y="14" width="56" height="38"/><path d="M18 14v38M32 14v38M46 14v38M2 58h60"/></svg>
+          <span class="sash__title">Cerramientos</span>
+          <span class="sash__handle" aria-hidden="true"></span>
+        </button>
+      </li>
+      <li class="sash">
+        <div class="sash__back">
+          <h3>Mamparas y mosquiteros</h3>
+          <p>Mamparas de baño a medida, mosquiteros fijos, corredizos y enrollables.</p>
+          <ul class="chips"><li>Baño</li><li>Mosquiteros</li><li>A medida</li></ul>
+          <a href="#contacto" class="sash__cta" data-tipo="mampara">Presupuestar mampara →</a>
+        </div>
+        <button class="sash__leaf" aria-expanded="false">
+          <span class="sash__num">05</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="10" width="40" height="50"/><path d="M32 10v50M20 4h10a6 6 0 0 1 6 6"/><path d="M20 22v3M24 26v3M18 30v3" opacity=".6"/></svg>
+          <span class="sash__title">Mamparas</span>
+          <span class="sash__handle" aria-hidden="true"></span>
+        </button>
+      </li>
+      <li class="sash">
+        <div class="sash__back">
+          <h3>Colocación y reparación</h3>
+          <p>Medimos en obra, instalamos con equipo propio y hacemos service de aberturas existentes.</p>
+          <ul class="chips"><li>Medición</li><li>Instalación</li><li>Service</li></ul>
+          <a href="#contacto" class="sash__cta" data-tipo="otro">Consultar →</a>
+        </div>
+        <button class="sash__leaf" aria-expanded="false">
+          <span class="sash__num">06</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="24" width="56" height="16"/><path d="M12 24v6M20 24v9M28 24v6M36 24v9M44 24v6M52 24v9"/><path d="M4 50h56M4 46v8M60 46v8"/></svg>
+          <span class="sash__title">Colocación</span>
+          <span class="sash__handle" aria-hidden="true"></span>
+        </button>
+      </li>
+    </ul>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section about stack" id="nosotros">
+    <figure class="about__photo">
+      <div class="frame">
+        <img src="img/equipo.svg" alt="El equipo de Canafa en el taller" loading="lazy">
+      </div>
+      <figcaption>Nuestro equipo en el taller</figcaption>
+    </figure>
+    <div class="about__text">
+      <p class="eyebrow">Sobre nosotros</p>
+      <h2>Fabricamos cada abertura a medida</h2>
+      <p>En Canafa diseñamos, fabricamos y colocamos aberturas de aluminio. Trabajamos con perfiles de primera línea y hacemos todo el proceso en nuestro taller, desde la medición hasta la instalación.</p>
+      <p>Acompañamos a particulares, arquitectos y constructoras en obras nuevas y en renovaciones.</p>
+      <dl class="stats">
+        <div><dt><span class="count" data-to="15" data-prefix="+">0</span></dt><dd>años de experiencia</dd></div>
+        <div><dt><span class="count" data-to="1200" data-prefix="+">0</span></dt><dd>obras terminadas</dd></div>
+        <div><dt><span class="count" data-to="100" data-suffix="%">0</span></dt><dd>fabricación propia</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CONTACTO: configurador de la abertura con plano en vivo -->
+  <section class="section contact stack" id="contacto">
+    <div class="section__head">
+      <p class="eyebrow">Contacto</p>
+      <h2>Pedí tu presupuesto</h2>
+      <p class="lead">Armá tu abertura en cuatro pasos y te mandamos el presupuesto.</p>
+    </div>
+
+    <form class="config" id="form" novalidate>
+      <ol class="config__progress" aria-hidden="true">
+        <li class="is-active"><span>1</span>Tipo</li>
+        <li><span>2</span>Medidas</li>
+        <li><span>3</span>Terminación</li>
+        <li><span>4</span>Tus datos</li>
+      </ol>
+
+      <div class="config__body">
+        <div class="config__fields">
+          <fieldset class="step is-active" data-step="1">
+            <legend>¿Qué abertura necesitás?</legend>
+            <div class="types">
+              <label class="type"><input type="radio" name="tipo" value="ventana" checked><span><svg viewBox="0 0 64 64"><rect x="4" y="10" width="56" height="44"/><rect x="9" y="15" width="26" height="34"/><rect x="29" y="18" width="26" height="31"/></svg>Ventana</span></label>
+              <label class="type"><input type="radio" name="tipo" value="puerta"><span><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56"/><rect x="21" y="9" width="22" height="26"/><path d="M40 36v6"/></svg>Puerta</span></label>
+              <label class="type"><input type="radio" name="tipo" value="pano"><span><svg viewBox="0 0 64 64"><rect x="4" y="8" width="56" height="48"/><path d="M23 8v48M41 8v48"/></svg>Paño fijo</span></label>
+              <label class="type"><input type="radio" name="tipo" value="cerramiento"><span><svg viewBox="0 0 64 64"><rect x="4" y="14" width="56" height="38"/><path d="M18 14v38M32 14v38M46 14v38"/></svg>Cerramiento</span></label>
+              <label class="type"><input type="radio" name="tipo" value="mampara"><span><svg viewBox="0 0 64 64"><rect x="12" y="10" width="40" height="50"/><path d="M32 10v50"/></svg>Mampara</span></label>
+              <label class="type"><input type="radio" name="tipo" value="otro"><span><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><path d="M26 26a6 6 0 1 1 8 6c-2 1-2 3-2 5M32 44v1"/></svg>Otro</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="2">
+            <legend>¿Qué medidas tiene?</legend>
+            <label class="range">Ancho <output id="outW">150 cm</output>
+              <input type="range" name="ancho" min="40" max="400" step="5" value="150">
+            </label>
+            <label class="range">Alto <output id="outH">110 cm</output>
+              <input type="range" name="alto" min="40" max="300" step="5" value="110">
+            </label>
+            <label class="qty">Cantidad
+              <span class="qty__ctrl">
+                <button type="button" data-qty="-1" aria-label="Menos">−</button>
+                <input type="number" name="cantidad" min="1" max="99" value="1" inputmode="numeric">
+                <button type="button" data-qty="1" aria-label="Más">+</button>
+              </span>
+            </label>
+            <p class="hint">¿No sabés las medidas exactas? Poné aproximadas, vamos a medir a la obra.</p>
+          </fieldset>
+
+          <fieldset class="step" data-step="3">
+            <legend>¿Cómo la querés?</legend>
+            <p class="sub">Color del aluminio</p>
+            <div class="swatches">
+              <label><input type="radio" name="color" value="Blanco" data-hex="#ecebe7" checked><span style="--c:#ecebe7"></span>Blanco</label>
+              <label><input type="radio" name="color" value="Negro" data-hex="#26282b"><span style="--c:#26282b"></span>Negro</label>
+              <label><input type="radio" name="color" value="Anodizado natural" data-hex="#b9bdc1"><span style="--c:#b9bdc1"></span>Natural</label>
+              <label><input type="radio" name="color" value="Bronce" data-hex="#6b4f36"><span style="--c:#6b4f36"></span>Bronce</label>
+              <label><input type="radio" name="color" value="Símil madera" data-hex="#8a5a32"><span style="--c:linear-gradient(90deg,#8a5a32,#a8733f 40%,#7a4e2b 70%,#996636)"></span>Madera</label>
+            </div>
+            <p class="sub">Vidrio</p>
+            <div class="pills">
+              <label><input type="radio" name="vidrio" value="Simple" checked><span>Simple</span></label>
+              <label><input type="radio" name="vidrio" value="DVH (doble vidriado)"><span>DVH</span></label>
+              <label><input type="radio" name="vidrio" value="Laminado de seguridad"><span>Laminado</span></label>
+            </div>
+            <p class="sub">Extras</p>
+            <div class="pills">
+              <label><input type="checkbox" name="extras" value="Mosquitero"><span>Mosquitero</span></label>
+              <label><input type="checkbox" name="extras" value="Persiana"><span>Persiana</span></label>
+              <label><input type="checkbox" name="extras" value="Colocación"><span>Colocación</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="4">
+            <legend>¿A quién le mandamos el presupuesto?</legend>
+            <label class="field">Nombre<input name="nombre" required autocomplete="name"></label>
+            <label class="field">Teléfono<input name="telefono" type="tel" required autocomplete="tel"></label>
+            <label class="field">Zona / localidad<input name="zona" autocomplete="address-level2"></label>
+            <label class="field">Comentarios<textarea name="mensaje" rows="3"></textarea></label>
+          </fieldset>
+
+          <div class="config__nav">
+            <button type="button" class="btn btn--ghost" id="prev" hidden>← Atrás</button>
+            <button type="button" class="btn" id="next">Siguiente →</button>
+            <button type="submit" class="btn" id="send" hidden>Enviar por WhatsApp</button>
+          </div>
+          <p class="config__error" id="formError" role="alert"></p>
+        </div>
+
+        <div class="config__preview" aria-hidden="true">
+          <svg id="previewSvg" viewBox="0 0 400 400"></svg>
+          <p class="config__ref">PLANO Nº <span id="planNo">02</span> · <span id="planSummary"></span></p>
+        </div>
+      </div>
+    </form>
+
+    <ul class="contact__info">
+      <li><span>WhatsApp</span><a href="https://wa.me/5490000000000" target="_blank" rel="noopener">+54 9 000 000-0000</a></li>
+      <li><span>Email</span><a href="mailto:info@canafa.com.ar">info@canafa.com.ar</a></li>
+      <li><span>Taller</span>Dirección del taller, Ciudad</li>
+      <li><span>Horario</span>Lun a vie 8 a 17 h · Sáb 8 a 12 h</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <img src="img/logo.png" alt="" width="36" height="36">
+    <p>© <span id="year"></span> Canafa · Aberturas de aluminio</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
