@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0d">
+  <meta name="color-scheme" content="dark">
+  <title>Trabajos · Canafa</title>
+  <meta name="description" content="Fotos y videos de trabajos de Canafa: ventanas, puertas, colocaciones y obra en seco.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@400;500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-galeria">
+  <a class="skip" href="#galeria">Saltar a la galería</a>
+
+  <header class="nav is-visible is-solid" id="nav">
+    <a href="index.html" class="nav__brand" aria-label="Canafa, inicio">
+      <img src="img/logo.png" alt="" width="40" height="40">
+      <span translate="no">CANAFA</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+    <nav id="menu" class="nav__menu">
+      <a href="index.html#trabajos">Trabajos</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#contacto" class="nav__cta">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- encabezado con estilo de plano, como la portada -->
+    <section class="g-hero">
+      <div class="hero__grid g-hero__grid" aria-hidden="true"></div>
+      <div class="g-hero__inner">
+        <a class="g-back" href="index.html#servicios">← Volver a servicios</a>
+        <p class="eyebrow">Servicio <span id="gNum"></span></p>
+        <h1 class="g-title" id="gTitle"></h1>
+        <p class="lead g-desc" id="gDesc"></p>
+        <p class="g-count" id="gCount"></p>
+        <nav class="g-tabs" id="gTabs" aria-label="Otros servicios"></nav>
+      </div>
+      <p class="g-ref" aria-hidden="true">PLANO Nº <span id="gRef"></span> · GALERÍA DE OBRA</p>
+    </section>
+
+    <section class="g-body" id="galeria" aria-labelledby="gTitle">
+      <div class="g-filter" role="group" aria-label="Mostrar">
+        <button type="button" data-filtro="todo" aria-pressed="true">Todo</button>
+        <button type="button" data-filtro="foto" aria-pressed="false">Fotos</button>
+        <button type="button" data-filtro="video" aria-pressed="false">Videos</button>
+      </div>
+      <ul class="g-grid" id="gGrid"></ul>
+    </section>
+
+    <section class="g-cta">
+      <p class="eyebrow">¿Te gustó lo que viste?</p>
+      <h2>Hagamos la tuya</h2>
+      <p class="lead">Contanos qué necesitás y te pasamos el presupuesto.</p>
+      <div class="g-cta__actions">
+        <a class="btn" href="index.html#contacto">Pedí tu presupuesto</a>
+        <a class="btn btn--ghost" href="index.html#servicios">Ver otros servicios</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="img/logo.png" alt="" width="36" height="36">
+    <p>© <span id="year"></span> Canafa · Aberturas de aluminio</p>
+  </footer>
+
+  <!-- visor a pantalla completa -->
+  <dialog class="lightbox" id="lightbox" aria-label="Visor de fotos y videos">
+    <div class="lightbox__stage" id="lbStage"></div>
+    <p class="lightbox__count" id="lbCount" aria-live="polite"></p>
+    <button type="button" class="lightbox__btn lightbox__close" id="lbClose" aria-label="Cerrar">×</button>
+    <button type="button" class="lightbox__btn lightbox__prev" id="lbPrev" aria-label="Anterior">‹</button>
+    <button type="button" class="lightbox__btn lightbox__next" id="lbNext" aria-label="Siguiente">›</button>
+  </dialog>
+
+  <!-- botón flotante de WhatsApp, visible en toda la web -->
+  <a class="wa-float" href="https://wa.me/5491134617310?text=Hola%20Canafa%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path class="wa-float__ring" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z"/><path d="M11.6 9.8c.3-.6.6-.6 1-.6h.8c.3 0 .6.1.8.6l1.1 2.6c.1.3 0 .6-.1.8l-.8 1c-.2.2-.2.5 0 .8.6 1 1.4 1.9 2.4 2.6.9.6 1.4.8 1.8.4l.9-1.1c.2-.3.5-.3.8-.2l2.5 1.2c.3.1.5.3.5.6 0 .9-.4 2-1.4 2.5-1 .5-2.3.6-4.6-.5a12.5 12.5 0 0 1-5.6-5.6c-.9-2-.6-3.4.1-4.3z"/></svg>
+    <span class="wa-float__label">Escribinos</span>
+  </a>
+
+  <script src="servicios.js"></script>
+  <script src="galeria.js"></script>
+</body>
+</html>

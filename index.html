@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0d">
+  <meta name="color-scheme" content="dark">
   <title>Canafa · Aberturas de Aluminio</title>
   <meta name="description" content="Canafa fabrica e instala aberturas de aluminio a medida: ventanas, puertas, paños fijos, cerramientos y mamparas.">
   <link rel="icon" href="img/logo.png">
@@ -12,11 +14,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip" href="#trabajos">Saltar al contenido</a>
 
   <header class="nav" id="nav">
     <a href="#inicio" class="nav__brand" aria-label="Canafa, inicio">
       <img src="img/logo.png" alt="" width="40" height="40">
-      <span>CANAFA</span>
+      <span translate="no">CANAFA</span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
@@ -66,7 +69,7 @@
     </div>
 
     <div class="hero__text">
-      <h1 class="wordmark" aria-label="Canafa">
+      <h1 class="wordmark" aria-label="Canafa" translate="no">
         <span style="--i:0">C</span><span style="--i:1">A</span><span style="--i:2">N</span><span style="--i:3">A</span><span style="--i:4">F</span><span style="--i:5">A</span>
       </h1>
       <p class="tagline">Aberturas de aluminio</p>
@@ -80,76 +83,69 @@
   </section>
 
   <!-- TRABAJOS: antes / después -->
-  <section class="section works stack" id="trabajos">
+  <div class="anchor" id="trabajos"></div>
+  <section class="section works stack" aria-labelledby="h-trabajos">
     <div class="section__head">
       <p class="eyebrow">Nuestros trabajos</p>
-      <h2>Antes y después</h2>
+      <h2 id="h-trabajos">Antes y después</h2>
       <p class="lead">Deslizá la barra sobre cada foto para ver cómo cambió el espacio.</p>
     </div>
 
     <div class="works__grid">
       <figure class="work">
         <div class="ba" style="--pos:50%">
-          <img src="img/trabajos/1-despues.svg" alt="Después: ventana corrediza de aluminio negro" class="ba__after" loading="lazy">
-          <img src="img/trabajos/1-antes.svg" alt="Antes: ventana de madera deteriorada" class="ba__before" loading="lazy">
+          <img src="img/trabajos/bano/despues.jpg" alt="Después: ventana de aluminio blanco con hojas superiores de abrir" class="ba__after" width="900" height="1200" loading="lazy">
+          <img src="img/trabajos/bano/antes.jpg" alt="Antes: ventana de hierro antigua con vidrio esmerilado" class="ba__before" width="900" height="1200" loading="lazy">
           <span class="ba__tag ba__tag--before">Antes</span>
           <span class="ba__tag ba__tag--after">Después</span>
           <div class="ba__handle" aria-hidden="true"><span></span></div>
-          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después">
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después de la ventana">
         </div>
         <figcaption>
-          <h3>Ventana corrediza · living</h3>
-          <p>Reemplazo de carpintería de madera por línea Modena con DVH.</p>
+          <h3>Ventana</h3>
+          <p>Cambio de una ventana de hierro antigua por una de aluminio blanco con hojas de abrir arriba.</p>
         </figcaption>
       </figure>
 
       <figure class="work">
         <div class="ba" style="--pos:50%">
-          <img src="img/trabajos/2-despues.svg" alt="Después: puerta ventana de aluminio" class="ba__after" loading="lazy">
-          <img src="img/trabajos/2-antes.svg" alt="Antes: puerta ventana antigua" class="ba__before" loading="lazy">
+          <img src="img/trabajos/cocina/despues.jpg" alt="Después: ventana y puerta de aluminio blanco con vidrio transparente" class="ba__after" width="900" height="1200" loading="lazy">
+          <img src="img/trabajos/cocina/antes.jpg" alt="Antes: ventana y puerta de hierro con vidrio esmerilado" class="ba__before" width="900" height="1200" loading="lazy">
           <span class="ba__tag ba__tag--before">Antes</span>
           <span class="ba__tag ba__tag--after">Después</span>
           <div class="ba__handle" aria-hidden="true"><span></span></div>
-          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después">
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después de la cocina">
         </div>
         <figcaption>
-          <h3>Puerta ventana · dormitorio</h3>
-          <p>Abertura de abrir con vidrio laminado de seguridad.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="work">
-        <div class="ba" style="--pos:50%">
-          <img src="img/trabajos/3-despues.svg" alt="Después: paño triple de aluminio" class="ba__after" loading="lazy">
-          <img src="img/trabajos/3-antes.svg" alt="Antes: ventanal antiguo" class="ba__before" loading="lazy">
-          <span class="ba__tag ba__tag--before">Antes</span>
-          <span class="ba__tag ba__tag--after">Después</span>
-          <div class="ba__handle" aria-hidden="true"><span></span></div>
-          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después">
-        </div>
-        <figcaption>
-          <h3>Ventanal de tres hojas · comedor</h3>
-          <p>Paño fijo central y dos hojas corredizas con mosquitero.</p>
+          <h3>Ventana y puerta</h3>
+          <p>Cambio de la carpintería de hierro con vidrio esmerilado por ventana y puerta de aluminio blanco con vidrio transparente.</p>
         </figcaption>
       </figure>
     </div>
   </section>
 
   <!-- SERVICIOS: cada servicio es una ventana de abrir -->
-  <section class="section services stack" id="servicios">
+  <div class="anchor" id="servicios"></div>
+  <section class="section services stack" aria-labelledby="h-servicios">
     <div class="section__head">
       <p class="eyebrow">Servicios</p>
-      <h2>Lo que hacemos</h2>
-      <p class="lead">Cada servicio es una ventana: <strong class="lead__hint">tocá la manija para abrirla</strong>.</p>
+      <h2 id="h-servicios">Lo que hacemos</h2>
+      <p class="lead">Cada servicio es una ventana: <strong class="lead__hint">tocá la manija para abrirla</strong> y mirá nuestros trabajos.</p>
     </div>
 
     <ul class="sashes">
-      <li class="sash">
+      <li class="sash" data-servicio="ventanas">
         <div class="sash__back">
-          <h3>Ventanas</h3>
-          <p>Corredizas, de abrir, oscilobatientes y banderolas, con vidrio simple o DVH.</p>
-          <ul class="chips"><li>Corredizas</li><li>Oscilobatientes</li><li>DVH</li></ul>
-          <a href="#contacto" class="sash__cta" data-tipo="ventana">Presupuestar ventana →</a>
+          <div class="sash__media" aria-hidden="true"></div>
+          <div class="sash__info">
+            <h3>Ventanas</h3>
+            <p>Corredizas, de abrir, oscilobatientes y paños fijos, en blanco y negro.</p>
+            <div class="sash__actions">
+              <a href="servicio.html?s=ventanas" class="sash__more">Ver trabajos →</a>
+              <a href="#contacto" class="sash__cta" data-tipo="ventana">Presupuestar</a>
+            </div>
+          </div>
+          <button type="button" class="sash__close" aria-label="Cerrar ventana">×</button>
         </div>
         <button class="sash__leaf" aria-expanded="false">
           <span class="sash__num">01</span>
@@ -159,12 +155,18 @@
           <span class="sash__open" aria-hidden="true">Abrir</span>
         </button>
       </li>
-      <li class="sash">
+      <li class="sash" data-servicio="puertas">
         <div class="sash__back">
-          <h3>Puertas</h3>
-          <p>Puertas de entrada, puertas ventana y corredizas de gran tamaño.</p>
-          <ul class="chips"><li>Entrada</li><li>Puerta ventana</li><li>Gran formato</li></ul>
-          <a href="#contacto" class="sash__cta" data-tipo="puerta">Presupuestar puerta →</a>
+          <div class="sash__media" aria-hidden="true"></div>
+          <div class="sash__info">
+            <h3>Puertas</h3>
+            <p>Puertas de entrada, de servicio y puertas ventana de aluminio, ciegas o con vidrio.</p>
+            <div class="sash__actions">
+              <a href="servicio.html?s=puertas" class="sash__more">Ver trabajos →</a>
+              <a href="#contacto" class="sash__cta" data-tipo="puerta">Presupuestar</a>
+            </div>
+          </div>
+          <button type="button" class="sash__close" aria-label="Cerrar ventana">×</button>
         </div>
         <button class="sash__leaf" aria-expanded="false">
           <span class="sash__num">02</span>
@@ -174,62 +176,44 @@
           <span class="sash__open" aria-hidden="true">Abrir</span>
         </button>
       </li>
-      <li class="sash">
+      <li class="sash" data-servicio="colocaciones">
         <div class="sash__back">
-          <h3>Paños fijos y frentes</h3>
-          <p>Frentes vidriados para locales, oficinas y casas. Máxima luz, mínima perfilería.</p>
-          <ul class="chips"><li>Locales</li><li>Frentes</li><li>Vidrio templado</li></ul>
-          <a href="#contacto" class="sash__cta" data-tipo="pano">Presupuestar paño fijo →</a>
+          <div class="sash__media" aria-hidden="true"></div>
+          <div class="sash__info">
+            <h3>Colocaciones</h3>
+            <p>Medimos, llevamos e instalamos cada abertura con equipo propio, en obra nueva y en reemplazos.</p>
+            <div class="sash__actions">
+              <a href="servicio.html?s=colocaciones" class="sash__more">Ver trabajos →</a>
+              <a href="#contacto" class="sash__cta" data-tipo="otro">Presupuestar</a>
+            </div>
+          </div>
+          <button type="button" class="sash__close" aria-label="Cerrar ventana">×</button>
         </div>
         <button class="sash__leaf" aria-expanded="false">
           <span class="sash__num">03</span>
-          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="8" width="56" height="48"/><path d="M23 8v48M41 8v48M4 20h56"/><path d="M10 50l8-8M28 50l10-10" opacity=".5"/></svg>
-          <span class="sash__title">Paños fijos</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="24" width="56" height="16"/><path d="M12 24v6M20 24v9M28 24v6M36 24v9M44 24v6M52 24v9"/><path d="M4 50h56M4 46v8M60 46v8"/></svg>
+          <span class="sash__title">Colocaciones</span>
           <span class="sash__handle" aria-hidden="true"></span>
           <span class="sash__open" aria-hidden="true">Abrir</span>
         </button>
       </li>
-      <li class="sash">
+      <li class="sash" data-servicio="obra-en-seco">
         <div class="sash__back">
-          <h3>Cerramientos</h3>
-          <p>Cerramientos de balcones, galerías y quinchos para usar el espacio todo el año.</p>
-          <ul class="chips"><li>Balcones</li><li>Galerías</li><li>Quinchos</li></ul>
-          <a href="#contacto" class="sash__cta" data-tipo="cerramiento">Presupuestar cerramiento →</a>
+          <div class="sash__media" aria-hidden="true"></div>
+          <div class="sash__info">
+            <h3>Obra en seco</h3>
+            <p>Estructuras, tabiques y revestimientos de construcción en seco para completar la obra.</p>
+            <div class="sash__actions">
+              <a href="servicio.html?s=obra-en-seco" class="sash__more">Ver trabajos →</a>
+              <a href="#contacto" class="sash__cta" data-tipo="otro">Presupuestar</a>
+            </div>
+          </div>
+          <button type="button" class="sash__close" aria-label="Cerrar ventana">×</button>
         </div>
         <button class="sash__leaf" aria-expanded="false">
           <span class="sash__num">04</span>
-          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 14h56M4 52h56"/><rect x="4" y="14" width="56" height="38"/><path d="M18 14v38M32 14v38M46 14v38M2 58h60"/></svg>
-          <span class="sash__title">Cerramientos</span>
-          <span class="sash__handle" aria-hidden="true"></span>
-          <span class="sash__open" aria-hidden="true">Abrir</span>
-        </button>
-      </li>
-      <li class="sash">
-        <div class="sash__back">
-          <h3>Mamparas y mosquiteros</h3>
-          <p>Mamparas de baño a medida, mosquiteros fijos, corredizos y enrollables.</p>
-          <ul class="chips"><li>Baño</li><li>Mosquiteros</li><li>A medida</li></ul>
-          <a href="#contacto" class="sash__cta" data-tipo="mampara">Presupuestar mampara →</a>
-        </div>
-        <button class="sash__leaf" aria-expanded="false">
-          <span class="sash__num">05</span>
-          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="10" width="40" height="50"/><path d="M32 10v50M20 4h10a6 6 0 0 1 6 6"/><path d="M20 22v3M24 26v3M18 30v3" opacity=".6"/></svg>
-          <span class="sash__title">Mamparas</span>
-          <span class="sash__handle" aria-hidden="true"></span>
-          <span class="sash__open" aria-hidden="true">Abrir</span>
-        </button>
-      </li>
-      <li class="sash">
-        <div class="sash__back">
-          <h3>Colocación y reparación</h3>
-          <p>Medimos en obra, instalamos con equipo propio y hacemos service de aberturas existentes.</p>
-          <ul class="chips"><li>Medición</li><li>Instalación</li><li>Service</li></ul>
-          <a href="#contacto" class="sash__cta" data-tipo="otro">Consultar →</a>
-        </div>
-        <button class="sash__leaf" aria-expanded="false">
-          <span class="sash__num">06</span>
-          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="24" width="56" height="16"/><path d="M12 24v6M20 24v9M28 24v6M36 24v9M44 24v6M52 24v9"/><path d="M4 50h56M4 46v8M60 46v8"/></svg>
-          <span class="sash__title">Colocación</span>
+          <svg class="sash__icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="52" height="52"/><path d="M19 6v52M32 6v52M45 6v52M6 22h52M6 42h52"/><path d="M15 14h1M28 14h1M41 14h1M15 50h1M28 50h1M41 50h1" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="sash__title">Obra en seco</span>
           <span class="sash__handle" aria-hidden="true"></span>
           <span class="sash__open" aria-hidden="true">Abrir</span>
         </button>
@@ -238,16 +222,17 @@
   </section>
 
   <!-- NOSOTROS -->
-  <section class="section about stack" id="nosotros">
+  <div class="anchor" id="nosotros"></div>
+  <section class="section about stack" aria-labelledby="h-nosotros">
     <figure class="about__photo">
       <div class="frame">
-        <img src="img/equipo.svg" alt="El equipo de Canafa en el taller" loading="lazy">
+        <img src="img/equipo.jpg" alt="El equipo de Canafa frente al local de Av. Díaz Vélez" width="1086" height="1448" loading="lazy">
       </div>
-      <figcaption>Nuestro equipo en el taller</figcaption>
+      <figcaption>Nuestro equipo</figcaption>
     </figure>
     <div class="about__text">
       <p class="eyebrow">Sobre nosotros</p>
-      <h2>Fabricamos cada abertura a medida</h2>
+      <h2 id="h-nosotros">Fabricamos cada abertura a medida</h2>
       <p>En Canafa diseñamos, fabricamos y colocamos aberturas de aluminio. Trabajamos con perfiles de primera línea y hacemos todo el proceso en nuestro taller, desde la medición hasta la instalación.</p>
       <p>Acompañamos a particulares, arquitectos y constructoras en obras nuevas y en renovaciones.</p>
       <dl class="stats">
@@ -259,10 +244,11 @@
   </section>
 
   <!-- CONTACTO: configurador de la abertura con plano en vivo -->
-  <section class="section contact stack" id="contacto">
+  <div class="anchor" id="contacto"></div>
+  <section class="section contact stack" aria-labelledby="h-contacto">
     <div class="section__head">
       <p class="eyebrow">Contacto</p>
-      <h2>Pedí tu presupuesto</h2>
+      <h2 id="h-contacto">Pedí tu presupuesto</h2>
       <p class="lead">Armá tu abertura en cuatro pasos y te mandamos el presupuesto.</p>
     </div>
 
@@ -277,7 +263,7 @@
       <div class="config__body">
         <div class="config__fields">
           <fieldset class="step is-active" data-step="1">
-            <legend>¿Qué abertura necesitás?</legend>
+            <legend tabindex="-1"><span class="visually-hidden">Paso 1 de 4: </span>¿Qué abertura necesitás?</legend>
             <div class="types">
               <label class="type"><input type="radio" name="tipo" value="ventana" checked><span><svg viewBox="0 0 64 64"><rect x="4" y="10" width="56" height="44"/><rect x="9" y="15" width="26" height="34"/><rect x="29" y="18" width="26" height="31"/></svg>Ventana</span></label>
               <label class="type"><input type="radio" name="tipo" value="puerta"><span><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56"/><rect x="21" y="9" width="22" height="26"/><path d="M40 36v6"/></svg>Puerta</span></label>
@@ -289,7 +275,7 @@
           </fieldset>
 
           <fieldset class="step" data-step="2">
-            <legend>¿Qué medidas tiene?</legend>
+            <legend tabindex="-1"><span class="visually-hidden">Paso 2 de 4: </span>¿Qué medidas tiene?</legend>
             <label class="range">Ancho <output id="outW">150 cm</output>
               <input type="range" name="ancho" min="40" max="400" step="5" value="150">
             </label>
@@ -307,14 +293,11 @@
           </fieldset>
 
           <fieldset class="step" data-step="3">
-            <legend>¿Cómo la querés?</legend>
+            <legend tabindex="-1"><span class="visually-hidden">Paso 3 de 4: </span>¿Cómo la querés?</legend>
             <p class="sub">Color del aluminio</p>
             <div class="swatches">
               <label><input type="radio" name="color" value="Blanco" data-hex="#ecebe7" checked><span style="--c:#ecebe7"></span>Blanco</label>
               <label><input type="radio" name="color" value="Negro" data-hex="#26282b"><span style="--c:#26282b"></span>Negro</label>
-              <label><input type="radio" name="color" value="Anodizado natural" data-hex="#b9bdc1"><span style="--c:#b9bdc1"></span>Natural</label>
-              <label><input type="radio" name="color" value="Bronce" data-hex="#6b4f36"><span style="--c:#6b4f36"></span>Bronce</label>
-              <label><input type="radio" name="color" value="Símil madera" data-hex="#8a5a32"><span style="--c:linear-gradient(90deg,#8a5a32,#a8733f 40%,#7a4e2b 70%,#996636)"></span>Madera</label>
             </div>
             <p class="sub">Vidrio</p>
             <div class="pills">
@@ -322,16 +305,17 @@
               <label><input type="radio" name="vidrio" value="DVH (doble vidriado)"><span>DVH</span></label>
               <label><input type="radio" name="vidrio" value="Laminado de seguridad"><span>Laminado</span></label>
             </div>
-            <p class="sub">Extras</p>
+            <p class="sub">Accesorios</p>
             <div class="pills">
               <label><input type="checkbox" name="extras" value="Mosquitero"><span>Mosquitero</span></label>
-              <label><input type="checkbox" name="extras" value="Persiana"><span>Persiana</span></label>
-              <label><input type="checkbox" name="extras" value="Colocación"><span>Colocación</span></label>
+              <label><input type="checkbox" name="extras" value="Tapajunta"><span>Tapajunta</span></label>
+              <label><input type="checkbox" name="extras" value="Guía de persiana"><span>Guía de persiana</span></label>
+              <label><input type="checkbox" name="extras" value="Tapacinta"><span>Tapacinta</span></label>
             </div>
           </fieldset>
 
           <fieldset class="step" data-step="4">
-            <legend>¿A quién le mandamos el presupuesto?</legend>
+            <legend tabindex="-1"><span class="visually-hidden">Paso 4 de 4: </span>¿A quién le mandamos el presupuesto?</legend>
             <label class="field">Nombre<input name="nombre" required autocomplete="name"></label>
             <label class="field">Teléfono<input name="telefono" type="tel" required autocomplete="tel"></label>
             <label class="field">Zona / localidad<input name="zona" autocomplete="address-level2"></label>
@@ -344,17 +328,18 @@
             <button type="submit" class="btn" id="send" hidden>Enviar por WhatsApp</button>
           </div>
           <p class="config__error" id="formError" role="alert"></p>
+          <p class="config__ok" id="formOk" role="status" tabindex="-1"></p>
         </div>
 
-        <div class="config__preview" aria-hidden="true">
-          <svg id="previewSvg" viewBox="0 0 400 400"></svg>
+        <div class="config__preview">
+          <svg id="previewSvg" viewBox="0 0 400 400" aria-hidden="true"></svg>
           <p class="config__ref">PLANO Nº <span id="planNo">02</span> · <span id="planSummary"></span></p>
         </div>
       </div>
     </form>
 
     <ul class="contact__info">
-      <li><span>WhatsApp</span><a href="https://wa.me/5490000000000" target="_blank" rel="noopener">+54 9 000 000-0000</a></li>
+      <li><span>WhatsApp</span><a href="https://wa.me/5491134617310?text=Hola%20Canafa%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">+54 9 11 3461-7310</a></li>
       <li><span>Email</span><a href="mailto:info@canafa.com.ar">info@canafa.com.ar</a></li>
       <li><span>Taller</span>Dirección del taller, Ciudad</li>
       <li><span>Horario</span>Lun a vie 8 a 17 h · Sáb 8 a 12 h</li>
@@ -366,6 +351,13 @@
     <p>© <span id="year"></span> Canafa · Aberturas de aluminio</p>
   </footer>
 
+  <!-- botón flotante de WhatsApp, visible en toda la web -->
+  <a class="wa-float" href="https://wa.me/5491134617310?text=Hola%20Canafa%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path class="wa-float__ring" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z"/><path d="M11.6 9.8c.3-.6.6-.6 1-.6h.8c.3 0 .6.1.8.6l1.1 2.6c.1.3 0 .6-.1.8l-.8 1c-.2.2-.2.5 0 .8.6 1 1.4 1.9 2.4 2.6.9.6 1.4.8 1.8.4l.9-1.1c.2-.3.5-.3.8-.2l2.5 1.2c.3.1.5.3.5.6 0 .9-.4 2-1.4 2.5-1 .5-2.3.6-4.6-.5a12.5 12.5 0 0 1-5.6-5.6c-.9-2-.6-3.4.1-4.3z"/></svg>
+    <span class="wa-float__label">Escribinos</span>
+  </a>
+
+  <script src="servicios.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

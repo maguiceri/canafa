@@ -1,4 +1,4 @@
-const WHATSAPP = "5490000000000"; // número sin + ni espacios
+const WHATSAPP = "5491134617310"; // número sin + ni espacios
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const nav = document.getElementById("nav");
@@ -8,7 +8,7 @@ const root = document.documentElement;
 // ---------- intro: arranca la animación del logo cuando cargan las fuentes ----------
 document.fonts.ready.then(() => {
   document.body.classList.add("is-ready");
-  setTimeout(() => nav.classList.add("is-visible"), reduceMotion ? 0 : 2600);
+  setTimeout(() => nav.classList.add("is-visible"), reduceMotion ? 0 : 800);
 });
 
 addEventListener("scroll", () => {
@@ -45,11 +45,14 @@ const setGate = (on) => {
   root.classList.toggle("is-gated", on);
 };
 
-if (!reduceMotion) {
+// si se llega con un link a una sección (por ejemplo desde la galería), no se traba la portada
+const deepLink = location.hash && location.hash !== "#inicio" && document.querySelector(location.hash);
+if (!reduceMotion && !deepLink) {
   history.scrollRestoration = "manual";
   scrollTo(0, 0);
   setGate(true);
 }
+if (deepLink) nav.classList.add("is-visible");
 
 function enter() {
   if (entering) return;
@@ -165,13 +168,42 @@ addEventListener("resize", setStick);
 const sashes = document.querySelectorAll(".sash");
 sashes.forEach((sash) => {
   const leaf = sash.querySelector(".sash__leaf");
+  const back = sash.querySelector(".sash__back");
+  const media = sash.querySelector(".sash__media");
+  const more = sash.querySelector(".sash__more");
+
+  // fotos del servicio detrás del vidrio (se cargan recién cuando la sección se acerca)
+  const fotos = (window.SERVICIOS?.[sash.dataset.servicio]?.loop || []).map((src, i) => {
+    const img = new Image();
+    img.src = src; img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+    if (i === 0) img.classList.add("is-active");
+    media.append(img);
+    return img;
+  });
+  let timer, current = 0;
+  const startLoop = () => {
+    if (reduceMotion || fotos.length < 2) return;
+    timer = setInterval(() => {
+      fotos[current].classList.remove("is-active");
+      current = (current + 1) % fotos.length;
+      fotos[current].classList.add("is-active");
+    }, 2400);
+  };
+
+  // con la ventana cerrada, lo de atrás no se ve ni recibe foco
   const setOpen = (open) => {
     sash.classList.toggle("is-open", open);
     leaf.setAttribute("aria-expanded", open);
+    back.inert = !open;
+    clearInterval(timer);
+    if (open) startLoop();
   };
+  back.inert = true;
   leaf.addEventListener("click", () => setOpen(!sash.classList.contains("is-open")));
-  sash.querySelector(".sash__back").addEventListener("click", (e) => {
-    if (!e.target.closest("a")) setOpen(false);
+  sash.querySelector(".sash__close").addEventListener("click", () => setOpen(false));
+  // tocar la ventana abierta lleva a la galería del servicio
+  back.addEventListener("click", (e) => {
+    if (!e.target.closest("a, button")) location.href = more.href;
   });
 });
 
@@ -190,8 +222,9 @@ if (!reduceMotion) {
     sashes.forEach((sash, i) => peek(sash, 400 + i * 110));
   }, { threshold: 0.35 }).observe(document.querySelector(".sashes"));
 
+  // se detiene cuando alguien abre una ventana o después de dos vueltas
   const loop = setInterval(() => {
-    if (document.querySelector(".sash.is-open")) return clearInterval(loop);
+    if (document.querySelector(".sash.is-open") || turn >= sashes.length * 2) return clearInterval(loop);
     if (inView && started) peek(sashes[turn++ % sashes.length], 0);
   }, 2600);
 }
@@ -232,7 +265,10 @@ const TIPOS = {
   cerramiento: "Cerramiento", mampara: "Mampara", otro: "Otro",
 };
 
-function goTo(n) {
+const fields = form.querySelector(".config__fields");
+
+// move: al avanzar o retroceder con los botones, se lleva la vista y el foco al paso nuevo
+function goTo(n, move = false) {
   current = n;
   steps.forEach((s) => s.classList.toggle("is-active", +s.dataset.step === n));
   progress.forEach((li, i) => {
@@ -243,10 +279,16 @@ function goTo(n) {
   nextBtn.hidden = n === 4;
   sendBtn.hidden = n !== 4;
   formError.textContent = "";
+  if (!move) return;
+  const top = fields.getBoundingClientRect().top;
+  if (top < 70 || top > innerHeight * 0.6) {
+    scrollTo({ top: scrollY + top - 80, behavior: reduceMotion ? "auto" : "smooth" });
+  }
+  form.querySelector(".step.is-active legend").focus({ preventScroll: true });
 }
 
-prevBtn.addEventListener("click", () => goTo(current - 1));
-nextBtn.addEventListener("click", () => goTo(current + 1));
+prevBtn.addEventListener("click", () => goTo(current - 1, true));
+nextBtn.addEventListener("click", () => goTo(current + 1, true));
 
 form.querySelectorAll("[data-qty]").forEach((b) => b.addEventListener("click", () => {
   const input = form.elements.cantidad;
@@ -299,10 +341,23 @@ function draw() {
   const mosq = (px, py, pw, ph) =>
     `<rect x="${px}" y="${py}" width="${pw}" height="${ph}" fill="url(#mesh)"/>`;
 
-  // persiana: cajón arriba
-  if (s.extras.includes("Persiana")) {
-    g += `<rect x="${x - 4}" y="${y - 26}" width="${w + 8}" height="22" fill="${c}" stroke="${line}" stroke-width=".8"/>`;
-    for (let i = 1; i < 4; i++) g += `<path d="M${x} ${y - 26 + i * 5.5}h${w}" stroke="rgba(0,0,0,.25)"/>`;
+  // tapajunta: moldura alrededor del marco
+  if (s.extras.includes("Tapajunta")) {
+    g += `<rect x="${x - 8}" y="${y - 8}" width="${w + 16}" height="${h + 16}" fill="${c}" stroke="${line}" stroke-width=".8"/>`;
+    g += `<rect x="${x - 2}" y="${y - 2}" width="${w + 4}" height="${h + 4}" fill="none" stroke="rgba(0,0,0,.3)" stroke-width=".8"/>`;
+  }
+  // guías de persiana: rieles a los costados
+  if (s.extras.includes("Guía de persiana")) {
+    for (const gx of [x - 7, x + w + 1]) {
+      g += `<rect x="${gx}" y="${y}" width="6" height="${h}" fill="${c}" stroke="${line}" stroke-width=".8"/>`;
+      g += `<path d="M${gx + 3} ${y + 4}V${y + h - 4}" stroke="rgba(0,0,0,.35)" stroke-width="1"/>`;
+    }
+  }
+  // tapacinta: cajita en la pared, al costado
+  if (s.extras.includes("Tapacinta")) {
+    const tx = x + w + 18, ty = y + h * .45;
+    g += `<rect x="${tx}" y="${ty}" width="11" height="38" rx="2" fill="${c}" stroke="${line}" stroke-width=".8"/>`;
+    g += `<path d="M${tx + 5.5} ${ty + 6}v14" stroke="rgba(0,0,0,.45)" stroke-width="2" stroke-linecap="round"/>`;
   }
   // marco
   g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${c}" stroke="${line}" stroke-width="1"/>`;
@@ -374,13 +429,21 @@ form.addEventListener("submit", (e) => {
     `• Medidas: ${s.w} × ${s.h} cm`,
     `• Color: ${s.color}`,
     `• Vidrio: ${s.vidrio}`,
-    s.extras.length ? `• Extras: ${s.extras.join(", ")}` : null,
+    s.extras.length ? `• Accesorios: ${s.extras.join(", ")}` : null,
     f.zona.value.trim() ? `• Zona: ${f.zona.value.trim()}` : null,
     ``,
     f.mensaje.value.trim() || null,
     `Tel: ${f.telefono.value.trim()}`,
   ].filter((l) => l !== null).join("\n");
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+  const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+  const win = window.open(url, "_blank");
+  if (win) win.opener = null;
+  else location.href = url; // si el navegador bloqueó la ventana nueva, se abre en esta
+
+  const ok = document.getElementById("formOk");
+  ok.innerHTML = `¡Listo! Se abrió WhatsApp con tu pedido armado, solo tenés que enviarlo. ` +
+    `Si no se abrió, <a href="${url}" target="_blank" rel="noopener">tocá acá</a>.`;
+  ok.focus();
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
