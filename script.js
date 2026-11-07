@@ -262,7 +262,7 @@ let current = 1;
 
 const TIPOS = {
   ventana: "Ventana corrediza", puerta: "Puerta", pano: "Paño fijo",
-  cerramiento: "Cerramiento", mampara: "Mampara", otro: "Otro",
+  cerramiento: "Cerramiento", otro: "Otro",
 };
 
 const fields = form.querySelector(".config__fields");
@@ -326,7 +326,7 @@ function draw() {
   const k = Math.min(290 / s.w, 250 / s.h);
   const w = s.w * k, h = s.h * k;
   const x = 215 - w / 2, y = 175 - h / 2;
-  const t = s.tipo === "mampara" ? 5 : 10;
+  const t = 10;
   const c = s.hex, line = "rgba(255,255,255,.35)";
   const glass = s.vidrio.startsWith("Laminado") ? "rgba(170,200,190,.2)" : "rgba(143,176,204,.16)";
   const dvh = s.vidrio.startsWith("DVH");
@@ -381,10 +381,6 @@ function draw() {
     const pw = iw / n;
     for (let i = 0; i < n; i++) g += pane(ix + i * pw + 3, iy + 3, pw - 6, ih - 6);
     if (s.extras.includes("Mosquitero")) g += mosq(ix + 6, iy + 6, pw - 12, ih - 12);
-  } else if (s.tipo === "mampara") {
-    g += pane(ix + 2, iy + 2, iw / 2, ih - 4, 3);
-    g += pane(ix + iw / 2 - 2, iy + 4, iw / 2, ih - 8, 3);
-    g += `<rect x="${ix + iw / 2 + 8}" y="${iy + ih / 2 - 14}" width="4" height="28" rx="2" fill="#dfe3e7"/>`;
   } else {
     g += pane(ix + 3, iy + 3, iw - 6, ih - 6);
     if (s.tipo === "pano") g += `<path d="M${ix + 8} ${iy + 8}L${ix + iw - 8} ${iy + ih - 8}M${ix + iw - 8} ${iy + 8}L${ix + 8} ${iy + ih - 8}" stroke="rgba(143,176,204,.35)" stroke-width=".8"/>`;
